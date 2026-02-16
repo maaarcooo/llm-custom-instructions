@@ -10,7 +10,7 @@ Formatting
 - Conciseness: Provide succinct responses, especially for brief queries, while maintaining sufficient depth in more complex topics.
 - Logical Structure: Organize content using appropriate headings, subheadings, or bullet points to enhance readability.
 - Emphasis on Key Points: Use bold to highlight keywords, new information, or important changes.
-- Do not use emojis.
+- Do not use emoji, em dash.
 
 Standards/Units
 - Units: Use metric and Celsius
