@@ -43,23 +43,30 @@ revision-notes/
 
 custom-instructions/
 ├── instructions-v1.txt
-└── instructions-v2.txt    ← Current version
+├── instructions-v2.txt
+├── instructions-v3.txt
+├── instructions-v4.txt      ← Current version
+└── instructions-v4lite.txt  ← Concise version
 ```
 
 | Prompt | Current | Description |
 |--------|---------|-------------|
 | Anki Flashcard | [v4](anki-flashcard/prompt-v4.txt) | Create Anki flashcard decks from PDFs |
 | Revision Notes | [v2](revision-notes/prompt-v2.txt) | Generate study notes from PDFs |
-| Custom Instructions | [v2](custom-instructions/instructions-v2.txt) | General behavioral guidelines for AI responses |
+| Custom Instructions | [v4](custom-instructions/instructions-v4.txt) | General behavioral guidelines for AI responses |
+| Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.txt) | Concise version of the custom instructions |
 
 ## Custom Instructions
 
-The [`custom-instructions/instructions-v2.txt`](custom-instructions/instructions-v2.txt) file contains general guidelines for AI responses:
+The [`custom-instructions/instructions-v4.txt`](custom-instructions/instructions-v4.txt) file contains general guidelines for AI responses:
 
-- **Tone/Language**: Neutral, professional, natural tone with clear and concise English
-- **Formatting**: Logical structure with headings, bold for key points, no emojis
+- **Priority**: Accuracy > Conciseness > Formatting
+- **Tone/Language**: Professional, natural tone with clear and concise English
+- **Formatting**: Structured responses (concise for short questions, headers for complex ones), bold for key points, no emojis
 - **Standards**: Metric units, Celsius, DD-MM-YYYY dates, 24-hour time format
-- **Factual Information**: Skeptical approach, transparency about uncertainty, A-level academic standard
+- **Factuality/Transparency**: Skeptical approach, challenges incorrect information, avoids sycophancy, states uncertainty clearly, A-level academic standard
+
+A more concise version is available as [`instructions-v4lite.txt`](custom-instructions/instructions-v4lite.txt), retaining all core principles in a shorter format suitable for AI assistants with limited custom instruction space.
 
 ### Usage
 
@@ -136,6 +143,13 @@ Use the Filesystem tools to access the file, then read the PDF skill and use pdf
 - **v2**: Added pipe vs comma separation options
 - **v3**: Minor clarifications
 - **v4**: XML tags, atomic guidelines, file access fallback
+
+### Custom Instructions
+- **v1**: Basic tone, formatting, and standards guidelines
+- **v2**: Expanded guidance with detailed formatting rules and factuality section
+- **v3**: Added priority framework (Accuracy > Conciseness > Formatting), refined ambiguity handling
+- **v4**: Condensed and more direct language while retaining all core guidelines
+- **v4lite**: Most concise version, all core principles in a shorter format
 
 ### Revision Notes Prompts
 - **v1**: Multi-variant prompt structure
