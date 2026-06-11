@@ -1,0 +1,23 @@
+# anki-flashcard-prompt-v1
+
+## Prompt
+
+```
+Prompt 1
+Using this pdf as reference, create flashcards for Anki deck called [Topic name].
+Making sure all bold or highlighted important texts are covered, use simple language, try to shorten each flashcard as much as possible, try to simplify things as much as possible.
+Do it in the fashion of Q: then next line A:
+
+Prompt 2
+Convert the flashcards into text file with each line a flashcard in format: Question, Answer.
+Opt: Ensure that commas are only used to separate the question from the answer.
+
+----ChatGPT----
+Prompt 2
+[Import .md file]
+Convert the flashcards into table with 2 rows, Question and Answer.
+Prompt 3
+Export into CSV.
+[Remove row head]
+----END----
+```

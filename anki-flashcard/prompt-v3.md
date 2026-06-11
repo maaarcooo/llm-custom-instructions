@@ -1,0 +1,22 @@
+# anki-flashcard-prompt-v3
+
+## Prompt
+
+```
+--------Prompt1--------
+Using this PDF as a reference, create flashcards deck for Anki called [PDF Name].
+Make sure all bolded or highlighted key content and Higher Tier content are included.
+Use simple language, keep each flashcard as concise as possible, try to simplify things as much as possible.
+Format each flashcard as Q: [Question] then next line A: [Answer]
+
+--------Prompt2--------
+# Separate by pipe [Recommanded]
+Create an text file, then convert the generated flashcards into the file with each line representing one flashcard in the format: Question | Answer
+
+# Separate by commas
+Create an text file, then convert the generated flashcards into the Artifact with each line representing one flashcard in the format: Question, Answer
+Ensure that commas are only used to separate the question from the answer.
+
+# Pipe would not causing error for Anki flashcard import
+# Artifacts only uses in Claude
+```
