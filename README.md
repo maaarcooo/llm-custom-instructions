@@ -20,26 +20,28 @@ A collection of customizable prompts and instructions for enhancing interactions
 
 **Create Anki flashcards from a PDF:**
 1. Upload your PDF to ChatGPT or Claude
-2. Paste the prompt from [`anki-flashcard/prompt-v4.txt`](anki-flashcard/prompt-v4.txt)
+2. Paste the prompt from [`anki-flashcard/prompt-v5.md`](anki-flashcard/prompt-v5.md)
 3. Import the output into Anki using `|` as field separator
 
 **Generate revision notes:**
 1. Upload your PDF to ChatGPT or Claude
-2. Paste the prompt from [`revision-notes/prompt-v2.txt`](revision-notes/prompt-v2.txt)
+2. Paste the prompt from [`revision-notes/prompt-v3.md`](revision-notes/prompt-v3.md)
 3. Save the markdown output
 
 ## Contents
 
 ```
 anki-flashcard/
-├── prompt-v1.txt
-├── prompt-v2.txt
-├── prompt-v3.txt
-└── prompt-v4.txt          ← Current version
+├── prompt-v1.txt / .md
+├── prompt-v2.txt / .md
+├── prompt-v3.txt / .md
+├── prompt-v4.txt / .md
+└── prompt-v5.md           ← Current version
 
 revision-notes/
 ├── prompt-v1.txt
-└── prompt-v2.txt          ← Current version
+├── prompt-v2.txt
+└── prompt-v3.md           ← Current version
 
 custom-instructions/
 ├── instructions-v1.txt
@@ -57,8 +59,8 @@ custom-instructions/
 
 | Prompt | Current | Description |
 |--------|---------|-------------|
-| Anki Flashcard | [v4](anki-flashcard/prompt-v4.txt) | Create Anki flashcard decks from PDFs |
-| Revision Notes | [v2](revision-notes/prompt-v2.txt) | Generate study notes from PDFs |
+| Anki Flashcard | [v5](anki-flashcard/prompt-v5.md) | Create Anki flashcard decks from PDFs |
+| Revision Notes | [v3](revision-notes/prompt-v3.md) | Generate study notes from PDFs |
 | Custom Instructions | [v5.4](custom-instructions/instructions-v5.4.txt) | Tone, formatting, and length guidelines for AI responses |
 | Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.txt) | Concise version of the v4 instructions |
 
@@ -80,67 +82,62 @@ Copy the contents into your AI assistant's custom instructions or system prompt 
 
 ## Anki Flashcard Prompts
 
-Create Anki-compatible flashcard decks from PDF documents. Version 4 is the latest and recommended.
+Create Anki-compatible flashcard decks from PDF documents. Version 5 is the latest and recommended.
+
+v5 is a standalone fallback for the `anki-flashcard-generator` skill, at full instruction parity with it. Use the skill where it is available and this prompt where it is not.
 
 ### Features
 
 - Extracts key content including bolded/highlighted information
-- One fact per card (atomic design)
+- One idea per card, judged flexibly, with explicit bundle-or-split rules
+- Card-type taxonomy: definition, recall, formula application, cloze, explain, enumeration
+- Reverse cards for key terms, generated as separate lines
+- Accuracy pass that fixes clear source errors and flags likely simplifications in chat
 - Outputs in `Question | Answer` format for direct Anki import
-- Includes reverse cards for key definitions
 - File access fallback using pdfplumber for troubleshooting
 
 ### Usage
 
 1. Upload your PDF to the AI assistant
-2. Use the prompt from [`anki-flashcard/prompt-v4.txt`](anki-flashcard/prompt-v4.txt):
-
-```
-Using this PDF as a reference, create a flashcards deck for Anki called [PDF Name].
-Include all bolded/highlighted key content and Higher Tier content.
-Ensure all necessary content of the topic is covered.
-Guidelines:
-- One fact per card (atomic)
-- Use simple, concise language
-- Include reverse cards for key definitions (for two-way recall)
-- Exclude questions that require a diagram
-Output as a text file, one flashcard per line: Question | Answer
-```
-
+2. Paste the prompt block from [`anki-flashcard/prompt-v5.md`](anki-flashcard/prompt-v5.md)
 3. Import the output text file into Anki using pipe (`|`) as the field separator
+
+The earlier [`prompt-v4.txt`](anki-flashcard/prompt-v4.txt) remains available as a much shorter prompt if v5 is more structure than you need.
 
 ## Revision Notes Prompts
 
-Generate concise study notes from PDF references. Version 2 is the latest.
+Generate dense, self-contained study notes from PDF references. Version 3 is the latest.
+
+v3 is a standalone fallback for the `revision-notes-generator` skill. Use the skill where it is available and this prompt where it is not.
 
 ### Features
 
-- Comprehensive topic coverage
-- Includes bolded/highlighted content
-- Proofreads for accuracy
+- Coverage checklist built from the source structure, then verified in a mandatory final pass
+- Signal density over brevity: length scales with the source, but every sentence must do work
+- Self-contained output, with diagram content translated into prose or tables
+- Beyond-source additions permitted but marked inline
+- Error flagging that preserves the source version rather than silently correcting it
+- LaTeX equations, plus a Key Equations summary table
 - Outputs as markdown
 
 ### Usage
 
 1. Upload your PDF to the AI assistant
-2. Use the prompt from [`revision-notes/prompt-v2.txt`](revision-notes/prompt-v2.txt):
+2. Paste the prompt block from [`revision-notes/prompt-v3.md`](revision-notes/prompt-v3.md)
+3. Save the markdown output
 
-```
-Using this PDF as a reference, write a concise notes on the topic with the exact title "[Topic title]".
-Include all bolded/highlighted key content and Higher Tier content.
-Ensure all necessary knowledge of the topic is covered.
-Proofread the information in the reference provided, and ensure all the information in the notes is correct.
-Output as a markdown file.
-```
+The prompt titles the notes from the source automatically. An optional override block in the same file sets an exact title.
 
 ## File Access Fallback
 
-If normal PDF upload doesn't work, use the file access prompt included in v4/v2 files:
+If normal PDF upload doesn't work, append the file access prompt included at the end of the v5 and v3 files:
 
 ```
 [File Pathname]
 Use the Filesystem tools to access the file, then read the PDF skill and use pdfplumber to extract the PDF.
 ```
+
+The revision notes variant differs slightly, asking the extraction to preserve bold and highlight formatting and describe figures. Use the version in the file you are working from.
 
 ## Version History
 
@@ -149,6 +146,7 @@ Use the Filesystem tools to access the file, then read the PDF skill and use pdf
 - **v2**: Added pipe vs comma separation options
 - **v3**: Minor clarifications
 - **v4**: XML tags, atomic guidelines, file access fallback
+- **v5**: Rewritten as a standalone fallback at parity with the `anki-flashcard-generator` skill. Added the card-type taxonomy, bundle-or-split rules, the yes/no ban, the `|` character exclusion, and a post-generation contradiction check
 
 ### Custom Instructions
 - **v1**: Basic tone, formatting, and standards guidelines
@@ -166,6 +164,7 @@ Use the Filesystem tools to access the file, then read the PDF skill and use pdf
 ### Revision Notes Prompts
 - **v1**: Multi-variant prompt structure
 - **v2**: Simplified with XML tags and file access fallback
+- **v3**: Rewritten as a standalone fallback for the `revision-notes-generator` skill. Added the coverage map and mandatory verification pass, signal density over brevity, marked beyond-source additions, error flagging, and LaTeX output with a Key Equations table
 
 ## License
 

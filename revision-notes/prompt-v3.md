@@ -18,11 +18,11 @@ Content rules:
 - Fidelity with flagged additions: Reproduce the source faithfully. Adding correct knowledge beyond the source is permitted when needed for complete understanding (e.g. the source omits a spec point, or two source statements would otherwise appear contradictory), but every addition must be marked inline as: *(Beyond source: [the added fact].)* Only mark content that genuinely does not appear anywhere in the source, including its tip boxes, examiner notes, and worked examples. Reconcile any addition with nearby source content so the notes never contradict themselves.
 - Worked examples: Where a source worked example teaches a reusable method (conservation-law checks, SUVAT strategy, deducing quark composition, equilibrium proofs), compress it into a short inline example showing the method. Omit worked examples that only substitute numbers into an already-stated formula.
 - Error flagging: If a source statement appears to conflict with standard A-Level treatment, keep the source version but append a flag immediately after it: > ⚠ Check: source states X; standard treatment is Y. Never silently "correct" the source.
-- Tier labelling (GCSE sources only): If the source distinguishes Higher Tier content, label it (HT). A-Level sources have no tiers; skip this entirely.
+- Tier labeling (GCSE sources only): If the source distinguishes Higher Tier content, label it (HT). A-Level sources have no tiers; skip this entirely.
 
 Output format:
 - Title as H1
-- Keep the source's section numbering in headings (e.g. "4.1.3 Motion Along a Straight Line") for cross-referencing; exclude sub-clause spec codes (e.g. "1.1.3 a)") and source formatting artefacts (page references, margins, branding)
+- Keep the source's section numbering in headings (e.g. "4.1.3 Motion Along a Straight Line") for cross-referencing; exclude sub-clause spec codes (e.g. "1.1.3 a)") and source formatting artifacts (page references, margins, branding)
 - Key terms in bold on first definition
 - Equations in LaTeX ($...$ inline, $$...$$ display)
 - Tables for comparative or tabular content
@@ -35,7 +35,7 @@ Verification (mandatory final pass) — check each item and fix any failure befo
 - Every beyond-source addition is marked and consistent with nearby content
 - No internal contradictions between sections
 - No "see source" references; all diagram content translated
-- No filler sentences; no formatting artefacts from the source
+- No filler sentences; no formatting artifacts from the source
 ```
 
 # Optional: override the default title
