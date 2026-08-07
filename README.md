@@ -45,28 +45,34 @@ custom-instructions/
 ├── instructions-v1.txt
 ├── instructions-v2.txt
 ├── instructions-v3.txt
-├── instructions-v4.txt      ← Current version
-└── instructions-v4lite.txt  ← Concise version
+├── instructions-v4.txt
+├── instructions-v4lite.txt  ← Concise version of the v4 line
+├── instructions-v5.txt
+├── instructions-v5.1.txt
+├── instructions-v5.2.txt
+├── instructions-v5.2.1.txt
+├── instructions-v5.3.txt
+└── instructions-v5.4.txt    ← Current version
 ```
 
 | Prompt | Current | Description |
 |--------|---------|-------------|
 | Anki Flashcard | [v4](anki-flashcard/prompt-v4.txt) | Create Anki flashcard decks from PDFs |
 | Revision Notes | [v2](revision-notes/prompt-v2.txt) | Generate study notes from PDFs |
-| Custom Instructions | [v4](custom-instructions/instructions-v4.txt) | General behavioral guidelines for AI responses |
-| Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.txt) | Concise version of the custom instructions |
+| Custom Instructions | [v5.4](custom-instructions/instructions-v5.4.txt) | Tone, formatting, and length guidelines for AI responses |
+| Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.txt) | Concise version of the v4 instructions |
 
 ## Custom Instructions
 
-The [`custom-instructions/instructions-v4.txt`](custom-instructions/instructions-v4.txt) file contains general guidelines for AI responses:
+The [`custom-instructions/instructions-v5.4.txt`](custom-instructions/instructions-v5.4.txt) file contains general guidelines for AI responses, organized into three sections:
 
-- **Priority**: Accuracy > Conciseness > Formatting
-- **Tone/Language**: Professional, natural tone with clear and concise English
-- **Formatting**: Structured responses (concise for short questions, headers for complex ones), bold for key points, no emojis
-- **Standards**: Metric units, Celsius, DD-MM-YYYY dates, 24-hour time format
-- **Factuality/Transparency**: Skeptical approach, challenges incorrect information, avoids sycophancy, states uncertainty clearly, A-level academic standard
+- **Tone**: Efficient base style, answer first with no preamble or closing recap, open disagreement rather than softened agreement
+- **Formatting**: Structure by default once a reply covers 3 or more distinct points, 3-sentence paragraph cap with the key finding bolded, terse bullets for lists and short paragraphs for explanations, literal language outside writing tasks, no emoji, em dashes, or semicolons
+- **Length**: Lead with the answer, no unrequested tangents, completeness over elaboration with depth on request
 
-A more concise version is available as [`instructions-v4lite.txt`](custom-instructions/instructions-v4lite.txt), retaining all core principles in a shorter format suitable for AI assistants with limited custom instruction space.
+The v5 line is a deliberate narrowing. Versions v1 to v4 also carried unit and date standards plus a factuality section. From v5 onwards the instructions cover response shape only, on the basis that the rest is either model default behavior or better handled per conversation.
+
+The older [`instructions-v4lite.txt`](custom-instructions/instructions-v4lite.txt) remains available as a condensed form of the v4 instructions, retaining the priority framework and factuality guidance in a shorter format.
 
 ### Usage
 
@@ -150,6 +156,12 @@ Use the Filesystem tools to access the file, then read the PDF skill and use pdf
 - **v3**: Added priority framework (Accuracy > Conciseness > Formatting), refined ambiguity handling
 - **v4**: Condensed and more direct language while retaining all core guidelines
 - **v4lite**: Most concise version, all core principles in a shorter format
+- **v5**: Dropped the priority framework, reworked formatting around matching format to content, split factuality into an honesty and judgement section
+- **v5.1**: Narrowed scope to response shape only, removing the standards and honesty sections. Introduced the explicit 3-point threshold for structure and a dedicated Length section
+- **v5.2**: Added rules for multi-issue reviews, a 3-sentence paragraph cap, and bolding the key finding per section. Length reframed as completeness over elaboration
+- **v5.2.1**: Reworded the review opener to a natural sentence with no label prefix
+- **v5.3**: Extended the structure threshold to sub-points and single-concept explanations, capped plain prose at roughly 2 paragraphs, added the literal language and metaphor limit
+- **v5.4**: Added a Tone section setting an efficient base style, no preamble or closing recap, and plain disagreement
 
 ### Revision Notes Prompts
 - **v1**: Multi-variant prompt structure
