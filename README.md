@@ -32,10 +32,10 @@ A collection of customizable prompts and instructions for enhancing interactions
 
 ```
 flashcard-generator/
-├── prompt-v1.txt / .md
-├── prompt-v2.txt / .md
-├── prompt-v3.txt / .md
-├── prompt-v4.txt / .md
+├── prompt-v1.md
+├── prompt-v2.md
+├── prompt-v3.md
+├── prompt-v4.md
 ├── prompt-v5.md
 └── prompt-v6.md           ← Current version
 

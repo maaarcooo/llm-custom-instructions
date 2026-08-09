@@ -1,4 +1,4 @@
-# anki-flashcard-prompt-v5
+# flashcard-prompt-v5
 
 > Standalone fallback for `anki-flashcard-generator` skill v3.6. Feature parity with the skill — use when the skill feature is unavailable. Keep this file in sync with SKILL.md when either is updated.
 
