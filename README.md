@@ -40,25 +40,25 @@ flashcard-generator/
 └── prompt-v6.md           ← Current version
 
 revision-notes/
-├── prompt-v1.txt
-├── prompt-v2.txt
+├── prompt-v1.md
+├── prompt-v2.md
 └── prompt-v3.md           ← Current version
 
 custom-instructions/
-├── instructions-v1.txt
-├── instructions-v2.txt
-├── instructions-v3.txt
-├── instructions-v4.txt
-├── instructions-v4lite.txt  ← Concise version of the v4 line
-├── instructions-v5.txt
-├── instructions-v5.1.txt
-├── instructions-v5.2.txt
-├── instructions-v5.2.1.txt
-├── instructions-v5.3.txt
-├── instructions-v5.4.txt
-├── instructions-v5.5.txt
-├── instructions-v5.5.1.txt  ← Current shared version
-└── chatgpt-character-addon-v5.5.txt
+├── instructions-v1.md
+├── instructions-v2.md
+├── instructions-v3.md
+├── instructions-v4.md
+├── instructions-v4lite.md   ← Concise version of the v4 line
+├── instructions-v5.md
+├── instructions-v5.1.md
+├── instructions-v5.2.md
+├── instructions-v5.2.1.md
+├── instructions-v5.3.md
+├── instructions-v5.4.md
+├── instructions-v5.5.md
+├── instructions-v5.5.1.md  ← Current shared version
+└── chatgpt-character-addon-v5.5.md
                               ← Optional ChatGPT character layer
 ```
 
@@ -66,28 +66,28 @@ custom-instructions/
 |--------|---------|-------------|
 | Flashcard Generator | [v6](flashcard-generator/prompt-v6.md) | Create flashcard decks from PDFs |
 | Revision Notes | [v3](revision-notes/prompt-v3.md) | Generate study notes from PDFs |
-| Custom Instructions | [v5.5.1](custom-instructions/instructions-v5.5.1.txt) | Shared presentation, formatting, length, and epistemic-discipline guidelines |
-| ChatGPT Character Add-on | [v5.5](custom-instructions/chatgpt-character-addon-v5.5.txt) | Optional character layer for a more curious, warm, independent ChatGPT |
-| Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.txt) | Concise version of the v4 instructions |
+| Custom Instructions | [v5.5.1](custom-instructions/instructions-v5.5.1.md) | Shared presentation, formatting, length, and epistemic-discipline guidelines |
+| ChatGPT Character Add-on | [v5.5](custom-instructions/chatgpt-character-addon-v5.5.md) | Optional character layer for a more curious, warm, independent ChatGPT |
+| Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.md) | Concise version of the v4 instructions |
 
 ## Custom Instructions
 
-The [`custom-instructions/instructions-v5.5.1.txt`](custom-instructions/instructions-v5.5.1.txt) file contains shared guidelines for AI responses, organized into four sections:
+The [`custom-instructions/instructions-v5.5.1.md`](custom-instructions/instructions-v5.5.1.md) file contains shared guidelines for AI responses, organized into four sections:
 
 - **Tone**: Efficient presentation style, answer first with no preamble or closing recap, open disagreement rather than softened agreement
 - **Formatting**: Structure by default once a reply covers 3 or more distinct points, 3-sentence paragraph cap with the key finding bolded, terse bullets for lists and short paragraphs for explanations, literal language outside writing tasks, no emoji, em dashes, or semicolons
 - **Length**: Stay focused while allowing relevant implications or tensions, completeness over elaboration with depth on request
 - **Epistemic discipline**: Accuracy over complete-sounding invention, clear separation of fact from inference, calibrated uncertainty, verification when appropriate, and direct correction of unsupported premises
 
-For ChatGPT, [`custom-instructions/chatgpt-character-addon-v5.5.txt`](custom-instructions/chatgpt-character-addon-v5.5.txt) adds a separate character layer: intellectual curiosity, warmth without sycophancy, independent judgment, calibrated confidence, occasional understated wit, and a conversational mode that does not automatically turn every exchange into coaching or an action plan. Keeping it separate preserves one shared set of presentation preferences while allowing platform-specific character tuning.
+For ChatGPT, [`custom-instructions/chatgpt-character-addon-v5.5.md`](custom-instructions/chatgpt-character-addon-v5.5.md) adds a separate character layer: intellectual curiosity, warmth without sycophancy, independent judgment, calibrated confidence, occasional understated wit, and a conversational mode that does not automatically turn every exchange into coaching or an action plan. Keeping it separate preserves one shared set of presentation preferences while allowing platform-specific character tuning.
 
 The v5 line is a deliberate narrowing. Versions v1 to v4 also carried unit and date standards plus broader factuality guidance. Versions v5.1 through v5.5 reduced the shared instructions to response shape, leaving other behavior to model defaults, per-conversation guidance, or a platform-specific layer such as the ChatGPT add-on. Version 5.5.1 restores only the epistemic rules needed to prevent confident gap-filling and unsupported claims.
 
-The older [`instructions-v4lite.txt`](custom-instructions/instructions-v4lite.txt) remains available as a condensed form of the v4 instructions, retaining the priority framework and factuality guidance in a shorter format.
+The older [`instructions-v4lite.md`](custom-instructions/instructions-v4lite.md) remains available as a condensed form of the v4 instructions, retaining the priority framework and factuality guidance in a shorter format.
 
 ### Usage
 
-Copy [`instructions-v5.5.1.txt`](custom-instructions/instructions-v5.5.1.txt) into your AI assistant's custom instructions or system prompt settings. For ChatGPT, append the contents of [`chatgpt-character-addon-v5.5.txt`](custom-instructions/chatgpt-character-addon-v5.5.txt) in the same instruction field; the add-on is designed to complement rather than replace the shared file.
+Copy [`instructions-v5.5.1.md`](custom-instructions/instructions-v5.5.1.md) into your AI assistant's custom instructions or system prompt settings. For ChatGPT, append the contents of [`chatgpt-character-addon-v5.5.md`](custom-instructions/chatgpt-character-addon-v5.5.md) in the same instruction field; the add-on is designed to complement rather than replace the shared file.
 
 ## Flashcard Generator Prompts
 
@@ -112,7 +112,7 @@ v6 is a standalone fallback for the `flashcard-generator` skill, at full instruc
 2. Paste the prompt block from [`flashcard-generator/prompt-v6.md`](flashcard-generator/prompt-v6.md)
 3. Import the output text file into your flashcard app using pipe (`|`) as the field separator
 
-The earlier [`prompt-v4.txt`](flashcard-generator/prompt-v4.txt) remains available as a much shorter prompt if v6 is more structure than you need.
+The earlier [`prompt-v4.md`](flashcard-generator/prompt-v4.md) remains available as a much shorter prompt if v6 is more structure than you need.
 
 ## Revision Notes Prompts
 

@@ -1,3 +1,8 @@
+# instructions-v5.2
+
+## Instructions
+
+```
 Formatting
 - Default to structure: any reply covering 3 or more distinct
   points gets headers or bold lead-ins, including conversational
@@ -20,3 +25,4 @@ Length
   for unless they materially affect my decision.
 - Completeness over elaboration: cover every point that matters,
   but state each one densely. Depth on request, not by default.
+```
