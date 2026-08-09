@@ -54,31 +54,37 @@ custom-instructions/
 ├── instructions-v5.2.txt
 ├── instructions-v5.2.1.txt
 ├── instructions-v5.3.txt
-└── instructions-v5.4.txt    ← Current version
+├── instructions-v5.4.txt
+├── instructions-v5.5.txt    ← Current shared version
+└── chatgpt-character-addon-v5.5.txt
+                              ← Optional ChatGPT character layer
 ```
 
 | Prompt | Current | Description |
 |--------|---------|-------------|
 | Anki Flashcard | [v5](anki-flashcard/prompt-v5.md) | Create Anki flashcard decks from PDFs |
 | Revision Notes | [v3](revision-notes/prompt-v3.md) | Generate study notes from PDFs |
-| Custom Instructions | [v5.4](custom-instructions/instructions-v5.4.txt) | Tone, formatting, and length guidelines for AI responses |
+| Custom Instructions | [v5.5](custom-instructions/instructions-v5.5.txt) | Shared presentation, formatting, and length guidelines for AI responses |
+| ChatGPT Character Add-on | [v5.5](custom-instructions/chatgpt-character-addon-v5.5.txt) | Optional character layer for a more curious, warm, independent ChatGPT |
 | Custom Instructions (Lite) | [v4lite](custom-instructions/instructions-v4lite.txt) | Concise version of the v4 instructions |
 
 ## Custom Instructions
 
-The [`custom-instructions/instructions-v5.4.txt`](custom-instructions/instructions-v5.4.txt) file contains general guidelines for AI responses, organized into three sections:
+The [`custom-instructions/instructions-v5.5.txt`](custom-instructions/instructions-v5.5.txt) file contains shared guidelines for AI responses, organized into three sections:
 
-- **Tone**: Efficient base style, answer first with no preamble or closing recap, open disagreement rather than softened agreement
+- **Tone**: Efficient presentation style, answer first with no preamble or closing recap, open disagreement rather than softened agreement
 - **Formatting**: Structure by default once a reply covers 3 or more distinct points, 3-sentence paragraph cap with the key finding bolded, terse bullets for lists and short paragraphs for explanations, literal language outside writing tasks, no emoji, em dashes, or semicolons
-- **Length**: Lead with the answer, no unrequested tangents, completeness over elaboration with depth on request
+- **Length**: Lead with the answer, stay focused while allowing relevant implications or tensions, completeness over elaboration with depth on request
 
-The v5 line is a deliberate narrowing. Versions v1 to v4 also carried unit and date standards plus a factuality section. From v5 onwards the instructions cover response shape only, on the basis that the rest is either model default behavior or better handled per conversation.
+For ChatGPT, [`custom-instructions/chatgpt-character-addon-v5.5.txt`](custom-instructions/chatgpt-character-addon-v5.5.txt) adds a separate character layer: intellectual curiosity, warmth without sycophancy, independent judgment, calibrated confidence, occasional understated wit, and a conversational mode that does not automatically turn every exchange into coaching or an action plan. Keeping it separate preserves one shared set of presentation preferences while allowing platform-specific character tuning.
+
+The v5 line is a deliberate narrowing. Versions v1 to v4 also carried unit and date standards plus a factuality section. From v5 onwards the shared instructions cover response shape only, on the basis that the rest is either model default behavior, better handled per conversation, or supplied through a separate platform-specific layer such as the ChatGPT add-on.
 
 The older [`instructions-v4lite.txt`](custom-instructions/instructions-v4lite.txt) remains available as a condensed form of the v4 instructions, retaining the priority framework and factuality guidance in a shorter format.
 
 ### Usage
 
-Copy the contents into your AI assistant's custom instructions or system prompt settings.
+Copy [`instructions-v5.5.txt`](custom-instructions/instructions-v5.5.txt) into your AI assistant's custom instructions or system prompt settings. For ChatGPT, append the contents of [`chatgpt-character-addon-v5.5.txt`](custom-instructions/chatgpt-character-addon-v5.5.txt) in the same instruction field; the add-on is designed to complement rather than replace the shared file.
 
 ## Anki Flashcard Prompts
 
@@ -160,6 +166,7 @@ The revision notes variant differs slightly, asking the extraction to preserve b
 - **v5.2.1**: Reworded the review opener to a natural sentence with no label prefix
 - **v5.3**: Extended the structure threshold to sub-points and single-concept explanations, capped plain prose at roughly 2 paragraphs, added the literal language and metaphor limit
 - **v5.4**: Added a Tone section setting an efficient base style, no preamble or closing recap, and plain disagreement
+- **v5.5**: Reframed the shared file as a presentation layer and loosened the literal-language and scope rules enough to admit useful implications, alternative interpretations, and occasional expressive phrasing. Added an optional ChatGPT character layer for curiosity, warmth without sycophancy, independent judgment, calibrated confidence, and mode-matched conversation
 
 ### Revision Notes Prompts
 - **v1**: Multi-variant prompt structure
