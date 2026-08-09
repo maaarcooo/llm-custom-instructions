@@ -10,7 +10,7 @@ A collection of customizable prompts and instructions for enhancing interactions
 - [Quick Start](#quick-start)
 - [Contents](#contents)
 - [Custom Instructions](#custom-instructions)
-- [Anki Flashcard Prompts](#anki-flashcard-prompts)
+- [Flashcard Generator Prompts](#flashcard-generator-prompts)
 - [Revision Notes Prompts](#revision-notes-prompts)
 - [File Access Fallback](#file-access-fallback)
 - [Version History](#version-history)
@@ -18,10 +18,10 @@ A collection of customizable prompts and instructions for enhancing interactions
 
 ## Quick Start
 
-**Create Anki flashcards from a PDF:**
+**Create flashcards from a PDF:**
 1. Upload your PDF to ChatGPT or Claude
-2. Paste the prompt from [`anki-flashcard/prompt-v5.md`](anki-flashcard/prompt-v5.md)
-3. Import the output into Anki using `|` as field separator
+2. Paste the prompt from [`flashcard-generator/prompt-v6.md`](flashcard-generator/prompt-v6.md)
+3. Import the output into your flashcard app using `|` as field separator
 
 **Generate revision notes:**
 1. Upload your PDF to ChatGPT or Claude
@@ -31,12 +31,13 @@ A collection of customizable prompts and instructions for enhancing interactions
 ## Contents
 
 ```
-anki-flashcard/
+flashcard-generator/
 ├── prompt-v1.txt / .md
 ├── prompt-v2.txt / .md
 ├── prompt-v3.txt / .md
 ├── prompt-v4.txt / .md
-└── prompt-v5.md           ← Current version
+├── prompt-v5.md
+└── prompt-v6.md           ← Current version
 
 revision-notes/
 ├── prompt-v1.txt
@@ -63,7 +64,7 @@ custom-instructions/
 
 | Prompt | Current | Description |
 |--------|---------|-------------|
-| Anki Flashcard | [v5](anki-flashcard/prompt-v5.md) | Create Anki flashcard decks from PDFs |
+| Flashcard Generator | [v6](flashcard-generator/prompt-v6.md) | Create flashcard decks from PDFs |
 | Revision Notes | [v3](revision-notes/prompt-v3.md) | Generate study notes from PDFs |
 | Custom Instructions | [v5.5.1](custom-instructions/instructions-v5.5.1.txt) | Shared presentation, formatting, length, and epistemic-discipline guidelines |
 | ChatGPT Character Add-on | [v5.5](custom-instructions/chatgpt-character-addon-v5.5.txt) | Optional character layer for a more curious, warm, independent ChatGPT |
@@ -88,11 +89,11 @@ The older [`instructions-v4lite.txt`](custom-instructions/instructions-v4lite.tx
 
 Copy [`instructions-v5.5.1.txt`](custom-instructions/instructions-v5.5.1.txt) into your AI assistant's custom instructions or system prompt settings. For ChatGPT, append the contents of [`chatgpt-character-addon-v5.5.txt`](custom-instructions/chatgpt-character-addon-v5.5.txt) in the same instruction field; the add-on is designed to complement rather than replace the shared file.
 
-## Anki Flashcard Prompts
+## Flashcard Generator Prompts
 
-Create Anki-compatible flashcard decks from PDF documents. Version 5 is the latest and recommended.
+Create flashcard decks from PDF documents. Version 6 is the latest and recommended.
 
-v5 is a standalone fallback for the `anki-flashcard-generator` skill, at full instruction parity with it. Use the skill where it is available and this prompt where it is not.
+v6 is a standalone fallback for the `flashcard-generator` skill, at full instruction parity with it. Use the skill where it is available and this prompt where it is not.
 
 ### Features
 
@@ -101,16 +102,17 @@ v5 is a standalone fallback for the `anki-flashcard-generator` skill, at full in
 - Card-type taxonomy: definition, recall, formula application, cloze, explain, enumeration
 - Reverse cards for key terms, generated as separate lines
 - Accuracy pass that fixes clear source errors and flags likely simplifications in chat
-- Outputs in `Question | Answer` format for direct Anki import
+- LaTeX equation formatting (KaTeX-compatible `$...$` / `$$...$$`)
+- Outputs in `Question | Answer` format for direct import
 - File access fallback using pdfplumber for troubleshooting
 
 ### Usage
 
 1. Upload your PDF to the AI assistant
-2. Paste the prompt block from [`anki-flashcard/prompt-v5.md`](anki-flashcard/prompt-v5.md)
-3. Import the output text file into Anki using pipe (`|`) as the field separator
+2. Paste the prompt block from [`flashcard-generator/prompt-v6.md`](flashcard-generator/prompt-v6.md)
+3. Import the output text file into your flashcard app using pipe (`|`) as the field separator
 
-The earlier [`prompt-v4.txt`](anki-flashcard/prompt-v4.txt) remains available as a much shorter prompt if v5 is more structure than you need.
+The earlier [`prompt-v4.txt`](flashcard-generator/prompt-v4.txt) remains available as a much shorter prompt if v6 is more structure than you need.
 
 ## Revision Notes Prompts
 
@@ -149,12 +151,13 @@ The revision notes variant differs slightly, asking the extraction to preserve b
 
 ## Version History
 
-### Anki Flashcard Prompts
+### Flashcard Generator Prompts
 - **v1**: Basic two-prompt structure
 - **v2**: Added pipe vs comma separation options
 - **v3**: Minor clarifications
 - **v4**: XML tags, atomic guidelines, file access fallback
 - **v5**: Rewritten as a standalone fallback at parity with the `anki-flashcard-generator` skill. Added the card-type taxonomy, bundle-or-split rules, the yes/no ban, the `|` character exclusion, and a post-generation contradiction check
+- **v6**: Renamed from anki-flashcard to flashcard-generator. Removed Anki-specific language. Added LaTeX equation formatting (KaTeX-compatible `$...$` / `$$...$$`). Parity with `flashcard-generator` skill v3.7
 
 ### Custom Instructions
 - **v1**: Basic tone, formatting, and standards guidelines
