@@ -20,7 +20,7 @@ A collection of customizable prompts and instructions for enhancing interactions
 
 **Create flashcards from a PDF:**
 1. Upload your PDF to ChatGPT or Claude
-2. Paste the prompt from [`flashcard-generator/prompt-v6.md`](flashcard-generator/prompt-v6.md)
+2. Paste the prompt from [`flashcard-generator/prompt-v7.md`](flashcard-generator/prompt-v7.md)
 3. Import the output into your flashcard app using `|` as field separator
 
 **Generate revision notes:**
@@ -37,7 +37,8 @@ flashcard-generator/
 ├── prompt-v3.md
 ├── prompt-v4.md
 ├── prompt-v5.md
-└── prompt-v6.md           ← Current version
+├── prompt-v6.md
+└── prompt-v7.md           ← Current version
 
 revision-notes/
 ├── prompt-v1.md
@@ -91,9 +92,9 @@ Copy [`instructions-v5.5.1.md`](custom-instructions/instructions-v5.5.1.md) into
 
 ## Flashcard Generator Prompts
 
-Create flashcard decks from PDF documents. Version 6 is the latest and recommended.
+Create flashcard decks from PDF documents. Version 7 is the latest and recommended.
 
-v6 is a standalone fallback for the `flashcard-generator` skill, at full instruction parity with it. Use the skill where it is available and this prompt where it is not.
+v7 is a standalone fallback for the `flashcard-generator` skill, at full instruction parity with it. Use the skill where it is available and this prompt where it is not.
 
 ### Features
 
@@ -101,7 +102,8 @@ v6 is a standalone fallback for the `flashcard-generator` skill, at full instruc
 - One idea per card, judged flexibly, with explicit bundle-or-split rules
 - Card-type taxonomy: definition, recall, formula application, cloze, explain, enumeration
 - Reverse cards for key terms, generated as separate lines
-- Accuracy pass that fixes clear source errors and flags likely simplifications in chat
+- Accuracy pass with the named exam board's specification as authority: confident fixes go on the cards and are listed in chat, doubtful content is left out with the reason given, simplifications are kept, out-of-spec content is flagged rather than added, and no card ever carries a statement the model believes wrong
+- Chat flags as a release-note bullet list (`Fixed:` / `Skipped:` / `Kept:` / `Flagged:`)
 - LaTeX equation formatting (KaTeX-compatible `$...$` / `$$...$$`)
 - Outputs in `Question | Answer` format for direct import
 - File access fallback using pdfplumber for troubleshooting
@@ -109,10 +111,10 @@ v6 is a standalone fallback for the `flashcard-generator` skill, at full instruc
 ### Usage
 
 1. Upload your PDF to the AI assistant
-2. Paste the prompt block from [`flashcard-generator/prompt-v6.md`](flashcard-generator/prompt-v6.md)
+2. Paste the prompt block from [`flashcard-generator/prompt-v7.md`](flashcard-generator/prompt-v7.md)
 3. Import the output text file into your flashcard app using pipe (`|`) as the field separator
 
-The earlier [`prompt-v4.md`](flashcard-generator/prompt-v4.md) remains available as a much shorter prompt if v6 is more structure than you need.
+The earlier [`prompt-v4.md`](flashcard-generator/prompt-v4.md) remains available as a much shorter prompt if v7 is more structure than you need.
 
 ## Revision Notes Prompts
 
@@ -140,7 +142,7 @@ The prompt titles the notes from the source automatically. An optional override 
 
 ## File Access Fallback
 
-If normal PDF upload doesn't work, append the file access prompt included at the end of the v5 and v3 files:
+If normal PDF upload doesn't work, append the file access prompt included at the end of the v7 and v3 files:
 
 ```
 [File Pathname]
@@ -158,6 +160,7 @@ The revision notes variant differs slightly, asking the extraction to preserve b
 - **v4**: XML tags, atomic guidelines, file access fallback
 - **v5**: Rewritten as a standalone fallback at parity with the `anki-flashcard-generator` skill. Added the card-type taxonomy, bundle-or-split rules, the yes/no ban, the `|` character exclusion, and a post-generation contradiction check
 - **v6**: Renamed from anki-flashcard to flashcard-generator. Removed Anki-specific language. Added LaTeX equation formatting (KaTeX-compatible `$...$` / `$$...$$`). Parity with `flashcard-generator` skill v3.7
+- **v7**: Accuracy pass reworked: the named qualification and exam board's specification is the authority; a confident correction goes on the cards and is listed in chat, a doubtful one means the content is left out with the reason given, and no card ever carries a statement the model believes wrong. Out-of-spec content is flagged rather than added. Chat flags are a release-note bullet list (`Fixed:` / `Skipped:` / `Kept:` / `Flagged:`). Parity with `flashcard-generator` skill v3.8
 
 ### Custom Instructions
 - **v1**: Basic tone, formatting, and standards guidelines
